@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"
+                        text="regresar" 
+                        color="primary"
+                        mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="logo-container">
+    <img src="assets/image/alumno.png" alt="img alumno">
+    <h1 class="text">Docente</h1>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="loginFormAlumno" (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input formControlName="username" placeholder="Ingresa tu usuario {{ var_username }}"></ion-input>
+      </ion-item>
+
+      <div *ngIf="loginFormAlumno.get('username')?.invalid && loginFormAlumno.get('username')?.touched">Error parametros de usuario</div>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="Ingresa tu contraseña {{ var_newpassword }}"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button expand="block" type="submit">Login</ion-button>
+
+      <!-- <div *ngIf="loginFormAlumno.get('password')?.touched">Error password</div> -->
+
+    </form>
+  </div>  
+  <br>
+  <ion-button [disabled]="isDisabled" (click)="toClick()" expand="block" type="submit">Modificar Contraseña</ion-button>
+  <div *ngIf="loginFormAlumno.get('password')?.invalid && loginFormAlumno.get('password')?.touched">Contraseña no valida, ingresa nuevamente o tambien puedes modificarla aquí</div>
+  
+</ion-content>

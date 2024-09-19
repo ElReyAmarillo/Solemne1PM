@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"
+                        text="regresar" 
+                        color="primary"
+                        mode="ios"></ion-back-button>
+      </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+ 
+
+      <ion-button id="open-modal" color="light" expand="block" [disabled]="!isFormValid()" slot="end" >Confirmar</ion-button>
+      <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="">
+        <ng-template>
+<ion-header>
+  <ion-toolbar>
+              
+              <ion-buttons slot="start">
+                <ion-button (click)="modal.dismiss()">Regresar</ion-button>
+              </ion-buttons>
+              <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+              
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+           <ion-img src="assets/image/Qr.png" alt="imagen qr" width="100%" height="auto"/>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+  </ion-toolbar>
+  
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-list>
+      <ion-item>
+        <ion-select label="Sede" placeholder="seleccion de sede" [(ngModel)]="selectedSede" >
+          <ion-select-option value="Puente alto">Puente alto</ion-select-option>
+          <ion-select-option value="Providencia">Providencia</ion-select-option>
+          <ion-select-option value="San Bernardo">San Bernardo</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-select label="Asignatura" label-placement="stacked" placeholder=" seleccion de Asignatura" [(ngModel)]="selectedAsignatura" [disabled]="!selectedSede" >
+          <ion-select-option value="Programacion movil">Programacion movil</ion-select-option>
+          <ion-select-option value="Arquitectura">Arquitectura</ion-select-option>
+          <ion-select-option value="Calidad De software">Calidad De software</ion-select-option>
+          <ion-select-option value="Progrmacion de DB">Progrmacion de DB</ion-select-option>
+          <ion-select-option value="Programacion web">Programacion web</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-select label="Seccion" label-placement="stacked" placeholder="seleccione seccion" [(ngModel)]="selectedSeccion" [disabled]="!selectedAsignatura">
+          <ion-select-option value="seccion1">001V</ion-select-option>
+          <ion-select-option value="seccion2">002V</ion-select-option>
+          <ion-select-option value="seccion7">007V</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      
+    </ion-list>
+</ion-content>

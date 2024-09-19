@@ -1,0 +1,32 @@
+
+
+<ion-header [translucent]="true" collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/alumno/']">Volver</ion-button>
+    </ion-buttons>
+    <ion-title><img src="assets/image/logoduocuc.png/" alt="logoSuperior" width="200vh" height="auto"></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentAlert()" >Confirmar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+
+  <ion-grid [fixed]="true" >
+
+
+    <ion-row class="ion-justify-content-center ion-align-items-center" style="margin-top: 10%; padding: 0%;" >
+      <ion-col size="auto">
+        <img src="assets/image/QrCamara.jpeg/" width="100%" height="auto">
+      </ion-col>
+    </ion-row>  
+    
+
+
+  </ion-grid>
+
+
+</ion-content>
